@@ -1,5 +1,5 @@
 # wtcms<br>
-** <font color=#0099ff>wtcms</font> ** 是基于ThinkPHP框架的一套CMS系统，方便用户快速建立企业网站，门户网站，个人博客或其他系统的内容管理系统。<br>
+**wtcms** 是基于ThinkPHP框架的一套CMS系统，方便用户快速建立企业网站，门户网站，个人博客或其他系统的内容管理系统。<br>
 
 # 首页<br>
 ![home_view](https://github.com/taosir/wtcms/blob/master/data/home.png)<br>
@@ -15,12 +15,13 @@
 - 操作系统：Windows/Mac/Linux <br>
 - php：>= 5.4<br>
 - mysql：>= 5.5<br>
+- rewrite on <br>
 
 # 安装部署<br>
-  1、配置好LAMP/WAMP环境<br>
-  2、新建一个数据库storage<br>
-  3、将wtcms.sql文件内容导入storage数据库中<br>
-  4、将整个项目文件放入到WWW文件夹下<br>
+  1、配置好`LAMP/WAMP`环境<br>
+  2、新建一个数据库`storage`<br>
+  3、将`wtcms.sql`文件内容导入`storage`数据库中<br>
+  4、将整个项目文件放入到`WWW`文件夹下<br>
   5、修改./data/conf/db.php<br>
 ```php
 <?php
@@ -39,6 +40,43 @@ return array(
     "COOKIE_PREFIX" => 'wt_', //cookies前缀
 );
 ```
+
+# 目录结构  
+```
+wtcms 根目录
+|-- admin   后台文件夹
+|-- application  应用目录
+    |-- Admin    管理员模块
+    |-- Api      手机客户端API模块
+    |-- Asset    Ueditor模块
+    |-- Comment  文章评论模块
+    |-- Common   通用基础模块
+    |-- Home     主模块
+    |-- Install  安装程序模块        
+    |-- Portal   微信公共平台API模块
+    |-- Potral   门户应用模块
+|-- data    数据目录
+    |-- conf        动态配置目录
+        |-- db.php  数据库配置文件
+        |-- config.php 全局配置文件
+        ...
+    |-- runtime     应用的运行时目录(可写)
+    |-- upload      上传文件存储路径
+    ...
+|-- plugins 插件目录
+    |-- comment     评论插件目录
+|-- public  公共静态文件存放
+|-- themes  主题目录
+    |-- default     默认主题
+        |-- Comment 评论页面
+        |-- Portal  模板页面
+        |-- Public  公共模板
+        |-- User    用户页面模板
+|-- thinkphp    thinkphp核心文件夹
+|-- index.php   入口文件
+|-- wtcms.sql   数据文件
+```
+      
 # 感谢<br>
 - Bootstrap<br>
 - ThinkPHP<br>
