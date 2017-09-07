@@ -1,10 +1,7 @@
 # wtcms
-**wtcms** 是基于ThinkPHP框架的一套CMS系统，方便用户快速建立企业网站，门户网站，个人博客或其他系统的内容管理系统。<br>
-
+<font color=#ff00>**wtcms**</font> 是基于ThinkPHP框架的一套CMS系统，方便用户快速建立企业网站，门户网站，个人博客或其他系统的内容管理系统。<br>
 # 主页
 ![home_view](https://github.com/taosir/wtcms/blob/master/public/images/home.png)<br>
-# 后台
-![home_view](https://github.com/taosir/wtcms/blob/master/public/images/login.png)<br>
 # 功能特色
 - 基于ueditor的内容编辑器；<br>
 - 基于bootstrap的前端框架开发；<br>
