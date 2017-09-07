@@ -1,22 +1,21 @@
-# wtcms<br>
+# wtcms
 **wtcms** 是基于ThinkPHP框架的一套CMS系统，方便用户快速建立企业网站，门户网站，个人博客或其他系统的内容管理系统。<br>
 
-# 首页<br>
-![home_view](https://github.com/taosir/wtcms/blob/master/data/home.png)<br>
-
-# 功能特色<br>
+# 主页
+![home_view](https://github.com/taosir/wtcms/blob/master/public/images/home.png)<br>
+# 后台
+![home_view](https://github.com/taosir/wtcms/blob/master/public/images/login.png)<br>
+# 功能特色
 - 基于ueditor的内容编辑器；<br>
 - 基于bootstrap的前端框架开发；<br>
 - 文章搜索功能；<br>
 - 内容自定义灵活；<br>
 - 基于thinkphp和thinkcmf，内容精简，二次开发方便。<br>
-
 # 运行环境<br>
 - 操作系统：Windows/Mac/Linux <br>
 - php：>= 5.4<br>
 - mysql：>= 5.5<br>
 - rewrite on <br>
-
 # 安装部署<br>
   1、配置好`LAMP/WAMP`环境<br>
   2、新建一个数据库`storage`<br>
@@ -40,9 +39,8 @@ return array(
     "COOKIE_PREFIX" => 'wt_', //cookies前缀
 );
 ```
-
 # 目录结构  
-```
+```php
 wtcms 根目录
 |-- admin   后台文件夹
 |-- application  应用目录
@@ -75,10 +73,11 @@ wtcms 根目录
 |-- thinkphp    thinkphp核心文件夹
 |-- index.php   入口文件
 |-- wtcms.sql   数据文件
-```
-      
+```    
 # 感谢<br>
 - Bootstrap<br>
 - ThinkPHP<br>
 - Thinkcmf<br>
+# 效果演示
+- http://storage.hust.edu.cn/
 
