@@ -1,0 +1,53 @@
+<admintpl file="header" />
+<style>
+.home_info li em {
+	float: left;
+	width: 120px;
+	font-style: normal;
+}
+li {
+	list-style: none;
+}
+</style>
+</head>
+<body>
+	<div class="wrap">
+		<div id="home_toptip"></div>
+
+		<h4 class="well">{:L('SYSTEM_INFORMATIONS')}</h4>
+		<div class="home_info">
+			<ul>
+				<volist name="server_info" id="vo">
+					<li><em>{$key}</em> <span>{$vo}</span></li>
+				</volist>
+			</ul>
+		</div>
+
+	</div>
+	<script src="__PUBLIC__/js/common.js"></script>
+	<php>
+		$lang_set=defined('LANG_SET')?LANG_SET:'';
+		$thinkcmf_version=defined('THINKCMF_VERSION')?THINKCMF_VERSION:'';
+	</php>
+	<script>
+		//获取官方通知
+		$.getJSON("http://www.thinkcmf.com/service/sms_jsonp.php?lang={$lang_set}&v={$thinkcmf_version}&callback=?",
+		function(data) {
+			var tpl = '<li><em class="title"></em><span class="content"></span></li>';
+			var $thinkcmf_notices = $("#thinkcmf_notices");
+			$thinkcmf_notices.empty();
+			if (data.length > 0) {
+				$.each(data, function(i, n) {
+					var $tpl = $(tpl);
+					$(".title", $tpl).html(n.title);
+					$(".content", $tpl).html(n.content);
+					$thinkcmf_notices.append($tpl);
+				});
+			} else {
+				$thinkcmf_notices.append("<li>^_^,{:L('NO_NOTICE')}~~</li>");
+			}
+
+		});
+	</script>
+</body>
+</html>

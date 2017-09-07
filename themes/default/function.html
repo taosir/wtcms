@@ -1,0 +1,71 @@
+<php>
+
+/*可以加多个方法哟！*/
+function _sp_helloworld(){
+	echo "hello!";
+}
+
+function _sp_helloworld2(){
+	echo "hello2!";
+}
+
+
+function _sp_helloworld3(){
+	echo "hello3!";
+}
+
+/*获取对应分类下所有子分类和文章的关键词，全站分类ID为0即可； */
+/*$cid, 分类id */
+/*$splitChar,分隔符 */
+/*$topCount,获取关键词数量 */
+/*返回 */
+/*关键词数组及关联文章数量 */
+function _sp_sql_keywords_bypostcatid($explodeChar,$topCount){
+	$catIDS=array();
+	$terms=M("Terms")->field("term_id")->where("status=1")->order('term_id asc')->select();
+	foreach($terms as $item){
+		$catIDS[]=$item['term_id'];
+	}
+	if(!empty($catIDS)){
+		$catIDS=implode(",", $catIDS);
+		$catIDS="cid:$catIDS;";
+		$catIDS="$catIDS;limit:1000;";
+	}
+	else{
+		$catIDS="";
+	}
+	$posts= sp_sql_posts($catIDS);
+	$keywords=array();
+
+	foreach($posts as $post)
+	{
+		$tags=explode($explodeChar,$post['post_keywords']);
+		$tagarrlength=count($tags);
+		$keywordsarrlength=count($keywords);
+		for($x=0 ; $x < $tagarrlength ;$x++ )
+		{
+			$haskeywords=false;
+			foreach($keywords as $w=>$w_value)
+			{
+				if($tags[$x]==$w)
+				{
+					$haskeywords=true;
+					$keywords[$w]=$w_value+1;
+					break;
+				}
+			}
+			if($haskeywords==false and trim($tags[$x])!="")
+			{
+				$keywords[trim($tags[$x])]=1;
+			}
+		}
+	}
+	arsort($keywords);//降序排序
+	$keywordsarrlength=count($keywords);
+	if($keywordsarrlength > $topCount){
+		$keywords=array_slice($keywords,0,$topCount);
+	}
+	ksort($keywords);
+	return array($keywords);
+}
+</php>

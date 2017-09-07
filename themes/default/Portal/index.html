@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{$site_seo_title} | {$site_name}</title>
+	<meta name="keywords" content="{$site_seo_keywords}" />
+	<meta name="description" content="{$site_seo_description}">
+	<tc_include file="Public:head" />
+	<link href="__TMPL__Public/assets/css/slippry/slippry.css" rel="stylesheet">
+	<style type="text/css">
+		.caption-wraper{position: absolute;left:50%;bottom:2em;}
+		.caption-wraper .caption{
+			position: relative;left:-50%;
+			background-color: rgba(0, 0, 0, 0.54);
+			padding: 0.4em 1em;
+			color:#fff;
+			-webkit-border-radius: 1.2em;
+			-moz-border-radius: 1.2em;
+			-ms-border-radius: 1.2em;
+			-o-border-radius: 1.2em;
+			border-radius: 1.2em;
+		}
+		@media (max-width: 767px){
+			.sy-box{margin: 12px -20px 0 -20px;}
+			.caption-wraper{left:0;bottom: 0.4em;}
+			.caption-wraper .caption{
+				left: 0;
+				padding: 0.2em 0.4em;
+				font-size: 0.92em;
+				-webkit-border-radius: 0;
+				-moz-border-radius: 0;
+				-ms-border-radius: 0;
+				-o-border-radius: 0;
+				border-radius: 0;}
+		}
+	</style>
+</head>
+<body>
+
+<tc_include file="Public:nav" />
+
+<div class="container" style="background-color:#fff;">
+	<div class="row">
+		<div class="span8">
+			<div class="tc-box  article-box">
+				<php>
+					$home_slides=sp_getslide("home_slide");
+
+					$home_slides=empty($home_slides)?$default_home_slides:$home_slides;
+				</php>
+				<ul id="homeslider" class="unstyled" >
+					<foreach name="home_slides" item="vo">
+						<li>
+							<div class="caption-wraper">
+								<div class="caption">{$vo.slide_name}</div>
+							</div>
+							<a href="{$vo.slide_url}"><img src="{:sp_get_asset_upload_path($vo['slide_pic'])}" alt="{$vo.slide_name}"></a>
+						</li>
+					</foreach>
+				</ul>
+			</div>
+			<div class="tc-box">
+				<div class="headtitle">
+					<h2><img src="__TMPL__Public/assets/images/bar.png"/>新闻消息 </h2>
+					<span class="sub-header">News</span>
+					<a href="/index.php?m=list&a=index&id=1"><i class="fa fa-hand-o-right" title="查看更多"></i></a>
+				</div>
+				<div class="ranking">
+					<php>
+						$hot_articles=sp_sql_posts("cid:$portal_news;field:post_title,post_excerpt,object_id,smeta,term_id;order:post_date desc;limit:3;");
+					</php>
+					<ul class="unstyled">
+						<foreach name="hot_articles" item="vo">
+							<php>$top=$key<3?"top3":"";</php>
+							<li class="{$top}"><i>{$key+1}</i><a title="{$vo.post_title}" href="{:leuu('article/index',array('id'=>$vo['object_id'],'cid'=>$vo['term_id']))}">{$vo.post_title}</a></li>
+						</foreach>
+					</ul>
+				</div>
+			</div>
+			<div class="tc-box">
+				<div class="headtitle">
+					<h2><img src="__TMPL__Public/assets/images/bar.png"/>通知公告 </h2>
+					<span class="sub-header">Notice</span>
+					<a href="/index.php?m=list&a=index&id=2"><i class="fa fa-hand-o-right" title="查看更多"></i></a>
+				</div>
+				<div class="ranking">
+					<php>
+						$hot_articles=sp_sql_posts("cid:$portal_notice;field:post_title,post_excerpt,object_id,smeta,term_id;order:post_date desc;limit:3;");
+					</php>
+					<ul class="unstyled">
+						<foreach name="hot_articles" item="vo">
+							<php>$top=$key<3?"top3":"";</php>
+							<li class="{$top}"><i>{$key+1}</i><a title="{$vo.post_title}" href="{:leuu('article/index',array('id'=>$vo['object_id'],'cid'=>$vo['term_id']))}">{$vo.post_title}</a></li>
+						</foreach>
+					</ul>
+				</div>
+			</div>
+
+		</div>
+		<div class="span4">
+			<div class="tc-box first-box">
+				<div class="headtitle">
+					<h2><img src="__TMPL__Public/assets/images/bar.png"/>公司简介</h2>
+					<span class="sub-header">Introduction</span>
+				</div>
+				<div class="ranking" style="text-indent:1.0em;padding:4px;font-weight:400">
+					PHP是一种通用开源脚本语言。语法吸收了C语言、Java和Perl的特点，利于学习，使用广泛，主要适用于Web开发领域。PHP 独特的语法混合了C、Java、Perl以及PHP自创的语法。
+					它可以比CGI或者Perl更快速地执行动态网页。用PHP做出的动态页面与其他的编程语言相比，PHP是将程序嵌入到HTML文档中去执行，执行效率比完全生成HTML标记的CGI要高许多；
+					PHP还可以执行编译后代码，编译可以达到加密和优化代码运行，使代码运行更快。<br/>&nbsp;&nbsp;
+					ThinkPHP是一个快速、兼容而且简单的轻量级国产PHP开发框架，诞生于2006年初，原名FCS，2007年元旦正式更名为ThinkPHP，
+					遵循Apache2开源协议发布，从Struts结构移植过来并做了改进和完善，同时也借鉴了国外很多优秀的框架和模式，使用面向对象的开发结构和MVC模式，
+					融合了Struts的思想和TagLib（标签库）、RoR的ORM映射和ActiveRecord模式。
+				</div>
+			</div>
+			<div class="tc-box">
+				<div class="headtitle">
+					<h2><img src="__TMPL__Public/assets/images/bar.png"/>公司动态</h2>
+					<span class="sub-header">Trends</span>
+					<a href="/index.php?m=list&a=index&id=3"><i class="fa fa-hand-o-right" title="查看更多"></i></a>
+				</div>
+				<div class="ranking">
+					<php>
+						$hot_articles=sp_sql_posts("cid:$portal_academic;field:post_title,post_excerpt,object_id,smeta,term_id;order:post_date desc;limit:5;");
+					</php>
+					<ul class="unstyled">
+						<foreach name="hot_articles" item="vo">
+							<php>$top=$key<3?"top3":"";</php>
+							<li class="{$top}"><i>{$key+1}</i><a title="{$vo.post_title}" href="{:leuu('article/index',array('id'=>$vo['object_id'],'cid'=>$vo['term_id']))}">{$vo.post_title}</a></li>
+						</foreach>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>
+<tc_include file="Public:footer"/>
+<tc_include file="Public:scripts"/>
+<script src="__TMPL__Public/assets/js/slippry.min.js"></script>
+<script>
+	$(function() {
+		var demo1 = $("#homeslider").slippry({
+			transition: 'fade',
+			useCSS: true,
+			captions: false,
+			speed: 1000,
+			pause: 3000,
+			auto: true,
+			preload: 'visible'
+		});
+	});
+</script>
+{:hook('footer_end')}
+</body>
+</html>

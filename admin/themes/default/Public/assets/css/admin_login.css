@@ -1,0 +1,216 @@
+/*
+===================
+@explain: 系统后台登录页面
+@copyright: Copyright 2012,phpwind.com
+@author: longwenid@gmail.com
+$Id: admin_login.css 22060 2012-12-19 03:01:55Z yanchixia $
+===================
+*/
+html{
+	padding:0;
+	margin:0;
+	background-color:#2f4050;
+}
+body {
+	padding:0;
+	margin:0;
+	font-family:Arial, "Microsoft Yahei";
+}
+
+video{
+	position:fixed;
+	top: 0px;
+	right: 0px;
+	min-wdith:100%;
+	min-height:100%;
+	width:100%;
+	height:auto;
+	z-index:-999;
+}
+.cover{
+	position: fixed;
+	opacity: 1;
+	background-color: rgba(0,0,0,0.2);
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	z-index: -2;
+}
+.wrap {
+	width: 300px;
+	overflow:hidden;
+	margin: 180px auto 0;
+	-webkit-animation: bounceIn 600ms linear;
+	-moz-animation: bounceIn 600ms linear;
+	-o-animation: bounceIn 600ms linear;
+	animation: bounceIn 600ms linear;
+}
+a{
+	color:#efefef;
+	text-decoration: none;
+}
+a:hover{
+	color:#ff9f10;
+}
+
+h1 {
+	display: block;
+	height: 50px;
+	width: 250px;
+	margin:auto;
+	overflow: hidden;
+	color:#fff;
+	font-size: 45px;
+    font-weight: normal;
+    text-align: center;
+    line-height: 50px;
+	padding:10px;
+}
+
+.login ul,
+.login li{
+	padding:0;
+	margin:0;
+	list-style:none;
+	color:#ffffff;
+}
+.login ul{
+	background:transparent;
+	border:none;
+	border-radius:3px;
+	overflow:hidden;
+	width:300px;
+	overflow:hidden;
+}
+.login li{
+	border:none;
+	padding:5px;
+}
+.login li img{
+	vertical-align:top;
+}
+.login .input {
+	color:#ffffff;
+	width: 280px;
+	height:28px;
+	padding: 5px;
+	vertical-align: middle;
+	background-color: rgba(255, 255, 255, 0.10);
+	border: 1px solid rgba(238, 238, 238, 0.47);
+	font-size:18px;
+	font-family:Arial,"Microsoft Yahei";
+	-webkit-border-radius:3px;
+	-moz-border-radius:3px;
+	border-radius:3px;
+}
+.login .input:focus {
+	outline:0 none;
+	border-color:#ffffff;
+}
+#verify-code{
+	width:150px;
+	position:relative;
+	float:left;
+}
+.btn {
+	width: 290px;
+	height: 38px;
+	padding: 0;
+	margin-top: 8px;
+	vertical-align: middle;
+	background:#549fcc url(../images/btn.png) repeat;
+	overflow:visible;
+	color:#fff;
+	font-size:20px;
+	cursor:pointer;
+	font-family:Arial, "Microsoft Yahei";
+	border:none;
+	border-radius:3px;
+}
+.btn:hover{
+	background-position:0 -40px;
+}
+.btn:active {
+	background-position:0 -80px;
+}
+.placeholder{
+	color:#999;
+}
+/*登录框动画*/
+@-webkit-keyframes bounceIn {
+	0% {
+		opacity: 0;
+		-webkit-transform: scale(.3);
+	}
+
+	50% {
+		opacity: 1;
+		-webkit-transform: scale(1.05);
+	}
+
+	70% {
+		-webkit-transform: scale(.9);
+	}
+
+	100% {
+		-webkit-transform: scale(1);
+	}
+}
+@-moz-keyframes bounceIn {
+	0% {
+		opacity: 0;
+		-moz-transform: scale(.3);
+	}
+
+	50% {
+		opacity: 1;
+		-moz-transform: scale(1.05);
+	}
+
+	70% {
+		-moz-transform: scale(.9);
+	}
+
+	100% {
+		-moz-transform: scale(1);
+	}
+}
+@-o-keyframes bounceIn {
+	0% {
+		opacity: 0;
+		-o-transform: scale(.3);
+	}
+
+	50% {
+		opacity: 1;
+		-o-transform: scale(1.05);
+	}
+
+	70% {
+		-o-transform: scale(.9);
+	}
+
+	100% {
+		-o-transform: scale(1);
+	}
+}
+@keyframes bounceIn {
+	0% {
+		opacity: 0;
+		transform: scale(.3);
+	}
+
+	50% {
+		opacity: 1;
+		transform: scale(1.05);
+	}
+
+	70% {
+		transform: scale(.9);
+	}
+
+	100% {
+		transform: scale(1);
+	}
+}

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>搜索 |{$site_name} </title>
+	<meta name="keywords" content=""/>
+	<meta name="description" content="">
+	<tc_include file="Public:head"/>
+</head>
+<body class="">
+<tc_include file="Public:nav"/>
+<div class="container" style="background-color:#fff;">
+	<div class="row">
+		<div class="span9">
+			<div class="tc-box first-box">
+				<php>
+					$result=sp_sql_posts_paged_bykeyword($keyword,"",10);
+					$result_pages= sp_sql_pages($tag,$where=array());
+				</php>
+				<h3>'{$keyword}' 搜索结果 </h3>
+				<p>
+					<span class="badge btn-danger"> {$result['count']} 条结果</span>
+				</p>
+			</div>
+			<volist name="result['posts']" id="vo">
+				<php>
+					$smeta=json_decode($vo['smeta'], true);
+				</php>
+				<div class="list-boxes">
+					<h2><a href="{:leuu('article/index',array('id'=>$vo['object_id'],'cid'=>$vo['term_id']))}">{$vo.post_title}</a></h2>
+					<p>
+						{$vo.post_excerpt}
+					</p>
+					<div>
+						<div class="pull-left">
+							<div class="list-actions">
+								<a href="javascript:;"><i class="fa fa-eye"></i><span>阅读量{$vo.post_hits}</span></a>
+							</div>
+						</div>
+						<a class="btn btn-warning pull-right" href="{:leuu('article/index',array('id'=>$vo['object_id'],'cid'=>$vo['term_id']))}">查看更多</a>
+					</div>
+				</div>
+			</volist>
+			<div class="pagination">
+				<ul>
+					{$result['page']}
+				</ul>
+			</div>
+		</div>
+		<div class="span3">
+			<div class="tc-box">
+				<div class="headtitle">
+					<h2><img src="__TMPL__Public/assets/images/bar.png"/>分享文章 </h2>
+					<span class="sub-header">Share</span>
+				</div>
+				<div class="bdsharebuttonbox">
+					<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+					<a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a>
+					<a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+				</div>
+				<script>
+					window._bd_share_config={
+						"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"24"},
+						"share":{}
+					};
+					with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+				</script>
+			</div>
+			<div class="tc-box">
+				<div class="headtitle">
+					<h2><img src="__TMPL__Public/assets/images/bar.png"/>最新发布 </h2>
+					<span class="sub-header">Latest</span>
+				</div>
+				<div class="ranking">
+					<php>
+						$hot_articles=sp_sql_posts("cid:$portal_last_post;field:post_title,post_excerpt,object_id,smeta,term_id;order:post_date desc;limit:5;");
+					</php>
+					<ul class="unstyled">
+						<foreach name="hot_articles" item="vo">
+							<php>$top=$key<3?"top3":"";</php>
+							<li class="{$top}"><i>{$key+1}</i><a title="{$vo.post_title}" href="{:leuu('article/index',array('id'=>$vo['object_id'],'cid'=>$vo['term_id']))}">{$vo.post_title}</a></li>
+						</foreach>
+					</ul>
+				</div>
+			</div>
+			<div class="tc-box">
+				<div class="headtitle">
+					<h2><img src="__TMPL__Public/assets/images/bar.png"/>友情链接 </h2>
+					<span class="sub-header">Link</span>
+				</div>
+				<div class="ranking">
+					<php>$links=sp_getlinks();</php>
+					<ul class="unstyled">
+						<foreach name="links" item="vo">
+							<li class="top3">
+								<a href="{$vo.link_url}" target="{$vo.link_target}"><i class="fa fa-share-alt"></i>{$vo.link_name}</a>
+							</li>
+						</foreach>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<tc_include file="Public:footer"/>
+<tc_include file="Public:scripts"/>
+</body>
+</html>

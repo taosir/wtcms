@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{$site_name}</title>
+	<meta name="keywords" content="{$site_seo_keywords}"/>
+	<meta name="description" content="{$site_seo_description}">
+	<meta name="author" content="taosir">
+	<tc_include file="Public:head"/>
+</head>
+<body class="body-white">
+<tc_include file="Public:nav_transparent"/>
+<video id="video_background" preload="auto" autoplay="true" loop="loop" muted="muted" volume="0">
+	<source src="__TMPL__Public/assets/images/time.webm" type="video/webm">
+	<source src="__TMPL__Public/assets/images/time.mp4" type="video/mp4">
+</video>
+<div class="cover">
+</div>
+<div class="container tc-main" style="margin:50px auto 0;">
+	<div class="row">
+		<div class="span4 offset4">
+			<h2 class="text-center" style="color:#ffffff;font-weight:bold;margin-bottom:30px;">用户注册</h2>
+			<!-- <ul class="nav nav-tabs" id="myTab">
+			<li class="active"><a href="#mobile" data-toggle="tab">手机注册</a></li>
+			<li><a href="#email" data-toggle="tab">邮箱注册</a></li>
+		</ul>
+		 -->
+			<div class="tab-content">
+				<div class="tab-pane" id="mobile">
+					<form class="form-horizontal js-ajax-form" action="{:U('user/register/doregister')}" method="post">
+						<div class="control-group">
+							<input type="text" name="mobile" placeholder="手机号" class="span4 input">
+						</div>
+						<div class="control-group">
+							<input type="password" name="password" placeholder="密码" class="span4 input">
+						</div>
+						<div class="control-group">
+							<div class="span4" style="margin-left: 0px;">
+								<input class="input" type="text" name="verify" placeholder="验证码" style="width:200px;">
+								{:sp_verifycode_img('length=4&font_size=14&width=100&height=40&charset=1234567890&use_noise=1&use_curve=0','style="cursor:pointer;border-radius:3px;float:right;" title="点击获取"')}
+							</div>
+						</div>
+						<div class="control-group">
+							<div class="span4" style="margin-left: 0px;">
+								<input class="input" type="text" name="mobile_verify" placeholder="手机验证码" style="width:232px;">
+								<a class="btn btn-success" style="width: 96px;">获取验证码</a>
+							</div>
+						</div>
+						<div class="control-group">
+							<button class="btn btn-primary js-ajax-submit span4" type="submit" data-wait="1500" style="margin-left: 0px;">确定注册</button>
+						</div>
+						<div class="control-group" style="text-align: center;">
+							<p>
+								已有账号?
+								<a href="{:leuu('user/login/index')}">点击此处登录</a>
+							</p>
+						</div>
+					</form>
+				</div>
+				<div class="tab-pane active" id="email">
+					<form class="form-horizontal js-ajax-form" action="{:U('user/register/doregister')}" method="post">
+						<div class="control-group">
+							<input type="text" name="username" placeholder="用户名" class="span4 input">
+						</div>
+						<div class="control-group">
+							<input type="text" name="email" placeholder="邮箱" class="span4 input">
+						</div>
+						<div class="control-group">
+							<input type="password" name="password" placeholder="密码" class="span4 input">
+						</div>
+						<div class="control-group">
+							<input type="password" name="repassword" placeholder="重复密码" class="span4 input">
+						</div>
+						<div class="control-group">
+							<div class="span4" style="margin-left: 0px;">
+								<input class="span3 input" type="text" name="verify" placeholder="验证码">
+								{:sp_verifycode_img('length=4&font_size=14&width=95&height=40&charset=1234567890&use_noise=1&use_curve=0','style="cursor:pointer;border-radius:3px;float:right;" title="点击获取"')}
+							</div>
+						</div>
+						<div class="control-group">
+							<button class="btn btn-primary js-ajax-submit span4" type="submit" data-wait="1500" style="margin-left: 0px;">注 册</button>
+							<!--<a href="{:U('api/oauth/login',array('type'=>'qq'))}" class="btn btn-warning pull-right"><i class="fa fa-qq"></i> QQ注册</a>-->
+						</div>
+						<div class="control-group" style="text-align: center;">
+							<p style="color:#ccc;">
+								已有账号?
+								<a href="{:leuu('user/login/index')}">点击此处登录</a>
+							</p>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<p style="color:#ffffff;text-align:center;font-size:1.0em;font-weight:bold;">
+		Copyright &copy; 2017 <a href="__ROOT__/">TAOSIR.</a>
+	<p>
+</div>
+<!-- /container -->
+<tc_include file="Public:scripts"/>
+</body>
+</html>

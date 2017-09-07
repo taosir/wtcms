@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{$site_name}</title>
+	<meta name="keywords" content="{$site_seo_keywords}"/>
+	<meta name="description" content="{$site_seo_description}">
+	<meta name="author" content="taosir">
+	<tc_include file="Public:head"/>
+</head>
+<body class="body-white">
+<tc_include file="Public:nav_transparent"/>
+<video id="video_background" preload="auto" autoplay="true" loop="loop" muted="muted" volume="0">
+	<source src="__TMPL__Public/assets/images/time.webm" type="video/webm">
+	<source src="__TMPL__Public/assets/images/time.mp4" type="video/mp4">
+</video>
+<div class="cover">
+</div>
+<div class="container tc-main" style="margin:100px auto 0;">
+	<div class="row" style="overflow:hidden;">
+		<div class="span4 offset4">
+			<h2 class="text-center" style="color:#ffffff;font-weight:bold;margin-bottom:50px;">用户登录</h2>
+			<form class="form-horizontal js-ajax-form" action="{:U('user/login/dologin')}" method="post">
+				<div class="control-group">
+					<input type="text" name="username" placeholder="手机号/邮箱/用户名" class="span4 input" required>
+				</div>
+				<div class="control-group">
+					<input type="password" name="password" placeholder="密码" class="span4 input" required>
+				</div>
+				<div class="control-group">
+					<div class="span4" style="margin-left: 0px;">
+						<input class="span3 input" type="text" id="input_verify" name="verify" placeholder="验证码"required>
+						{:sp_verifycode_img('length=4&font_size=14&width=95&height=40&charset=12345678&use_noise=1&use_curve=0','style="cursor:pointer;border-radius:3px;float:right;" title="点击获取"')}
+					</div>
+				</div>
+				<div class="control-group">
+					<button class="btn btn-warning js-ajax-submit span4" type="submit" style="margin-left: 0px">登 录</button>
+				<!--	<a href="{:U('api/oauth/login',array('type'=>'qq'))}" class="btn btn-primary pull-right"><i class="fa fa-qq"></i> QQ登录</a>-->
+				</div>
+				<div class="control-group" style="text-align: center;">
+					<ul class="inline">
+						<li><a href="{:leuu('user/register/index')}">现在注册</a></li>
+						<li><a href="{:U('user/login/forgot_password')}">忘记密码</a></li>
+					</ul>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+<p style="color:#ffffff;text-align:center;font-size:1.0em;font-weight:bold;">
+	Copyright &copy; 2017 <a href="__ROOT__/">TAOSIR.</a>
+<p>
+	<!-- /container -->
+	<tc_include file="Public:scripts"/>
+</body>
+</html>

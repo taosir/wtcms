@@ -1,0 +1,31 @@
+<!-- Footer ================================================== -->
+{:hook('footer')}
+<div class="container">
+	<div id="footer">
+		<div class="row" >
+			<div class="text-center">
+				友情链接:
+				<php>$links=sp_getlinks();</php>
+				<foreach name="links" item="vo">
+					<notempty name="vo.link_image">
+						<a href="{$vo.link_url}" target="{$vo.link_target}">
+							{$vo.link_name}
+							<!--<img src="{:sp_get_image_url($vo['link_image'])}" style="width:140px;height:30px;padding:0 10px 10px 0;">-->
+						</a> |
+					</notempty>
+				</foreach>
+			</div>
+		</div>
+		<div class="row">
+			<div class="text-center">
+				<br/>
+				&copy; 2017 TAOSIR. All Rights Reserved.
+			</div>
+		</div>
+	</div>
+</div>
+<div id="backtotop">
+	<i class="fa fa-chevron-circle-up" title="返回顶部"></i>
+</div>
+<!--web analyse script-->
+{$site_tongji}

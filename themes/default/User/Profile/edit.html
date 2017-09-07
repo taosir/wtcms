@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{$site_name}</title>
+	<meta name="keywords" content="{$site_seo_keywords}"/>
+	<meta name="description" content="{$site_seo_description}">
+	<meta name="author" content="taosir">
+	<tc_include file="Public:head"/>
+	<style>
+		#usernav-header{
+			background: #4B4F55;border-bottom: 1px solid #353A40;border-radius: 5px 5px 0 0;color: #fff;padding: 15px;text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);font-size:1.5em;
+		}
+		#list-group{
+			background: #fff;font-weight:bold;
+		}
+		#usernav-tab li a{
+			color:#4b4f55;
+			font-weight:bold;
+		}
+	</style>
+</head>
+<body class="body-white" id="top">
+<tc_include file="Public:nav"/>
+<div class="container tc-main">
+	<div class="row">
+		<div class="span2">
+			<div id="usernav-header">个人中心</div>
+			<div id="list-group">
+				<a class="list-group-item " href="{:U('user/center/index')}"><i class="fa fa-info-circle fa-fw"></i> 基本信息</a>
+				<a class="list-group-item active" href="{:U('user/profile/edit')}"><i class="fa fa-list-alt fa-fw"></i> 修改资料</a>
+				<a class="list-group-item" href="{:U('user/profile/password')}"><i class="fa fa-lock fa-fw"></i> 修改密码</a>
+				<a class="list-group-item" href="{:U('user/profile/avatar')}"><i class="fa fa-user fa-fw"></i> 编辑头像</a>
+				<a class="list-group-item" href="{:U('user/profile/bang')}"><i class="fa fa-exchange fa-fw"></i> 绑定账号</a>
+				<a class="list-group-item " href="{:U('portal/UserArticle/index')}"><i class="fa fa-file-text fa-fw"></i> 我的文章</a>
+				<a class="list-group-item" href="{:U('user/favorite/index')}"><i class="fa fa-star-o fa-fw"></i> 我的收藏</a>
+				<a class="list-group-item" href="{:U('comment/comment/index')}"><i class="fa fa-comments-o fa-fw"></i> 我的评论</a>
+			</div>
+		</div>
+		<div class="span10">
+			<div class="tabs">
+				<ul class="nav nav-tabs" id="usernav-tab">
+					<li class="active"><a href="#one" data-toggle="tab"><i class="fa fa-list-alt"></i> 修改资料 </a></li>
+				</ul>
+				<div class="tab-content">
+					<div class="tab-pane active" id="one">
+						<form class="form-horizontal js-ajax-form" action="{:U('profile/edit_post')}" method="post">
+							<div class="control-group">
+								<label class="control-label" for="input-user_nicename">昵称</label>
+								<div class="controls">
+									<input type="text" id="input-user_nicename" placeholder="昵称" name="user_nicename" value="{$user_nicename}">
+								</div>
+							</div>
+							<div class="control-group">
+								<label class="control-label" for="input-sex">性别</label>
+								<div class="controls">
+									<php>
+										$sexs=array("0"=>"保密","1"=>"程序猿","2"=>"程序媛");
+									</php>
+									<select id="input-sex" name="sex">
+										<foreach name="sexs" item="vo">
+											<php>$sexselected=$key==$sex?"selected":"";</php>
+											<option value="{$key}" {$sexselected}>{$vo}</option>
+										</foreach>
+									</select>
+								</div>
+							</div>
+							<div class="control-group">
+								<label class="control-label" for="input-birthday">生日</label>
+								<div class="controls">
+									<input class="js-date" type="text" id="input-birthday" placeholder="2013-01-04" name="birthday" value="{$birthday}">
+								</div>
+							</div>
+							<div class="control-group">
+								<label class="control-label" for="input-user_url">个人网址</label>
+								<div class="controls">
+									<input type="text" id="input-user_url" placeholder="http://thinkcmf.com" name="user_url" value="{$user_url}">
+								</div>
+							</div>
+							<div class="control-group">
+								<label class="control-label" for="input-signature">个性签名</label>
+								<div class="controls">
+									<textarea id="input-signature" placeholder="个性签名" name="signature">{$signature}</textarea>
+								</div>
+							</div>
+							<div class="control-group">
+								<div class="controls">
+									<button type="submit" class="btn btn-primary js-ajax-submit">保存</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- /container -->
+<tc_include file="Public:scripts"/>
+</body>
+</html>
