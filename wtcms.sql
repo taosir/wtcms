@@ -734,7 +734,7 @@ CREATE TABLE `wt_users` (
 -- ----------------------------
 -- Records of wt_users
 -- ----------------------------
-INSERT INTO `wt_users` VALUES ('1', 'admin', '###78123e4707b68ceeae01909a4011aa22', 'admin', '365224772@qq.com', '', 'avatar/admin_headicon.png', '0', '2017-01-01', '', '127.0.0.1', '2017-09-07 17:49:26', '2017-05-11 09:43:49', '6818d5f626a1e499782cab7aed3911a8', '1', '0', '1', '0', '');
+INSERT INTO `wt_users` VALUES ('1', 'admin', '###1b09e9a9262680ba9582a035c32c5667', 'admin', '365224772@qq.com', '', 'avatar/admin_headicon.png', '0', '2017-01-01', '', '127.0.0.1', '2017-09-07 17:49:26', '2017-05-11 09:43:49', '6818d5f626a1e499782cab7aed3911a8', '1', '0', '1', '0', '');
 
 -- ----------------------------
 -- Table structure for wt_user_favorites
