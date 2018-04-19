@@ -19,6 +19,7 @@
   3、将`wtcms.sql`文件内容导入`storage`数据库中<br>
   4、将整个项目文件放入到`WWW`文件夹下<br>
   5、修改`/data/conf/db.php`<br>
+  6、后台登录密码为 `123456` <br>
 ```php
 return array(
     'DB_TYPE' => 'mysqli', 
