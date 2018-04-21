@@ -14,12 +14,11 @@
 - mysql：>= 5.5<br>
 - rewrite on <br>
 # 安装部署<br>
-  1、配置好`LAMP/WAMP`环境<br>
+1、配置好`LAMP/WAMP`环境<br>
   2、新建一个数据库`storage`<br>
   3、将`wtcms.sql`文件内容导入`storage`数据库中<br>
   4、将整个项目文件放入到`WWW`文件夹下<br>
   5、修改`/data/conf/db.php`<br>
-  6、后台地址：'/admin' 登录账号: `admin` 登录密码为: `123456` <br>
 ```php
 return array(
     'DB_TYPE' => 'mysqli', 
@@ -66,7 +65,11 @@ wtcms 根目录
 |-- thinkphp    thinkphp核心文件夹
 |-- index.php   入口文件
 |-- wtcms.sql   数据文件
-```    
+``` 
+# 后台管理 <br>
+- 登录地址：'/admin' <br>
+- 登录账号: `admin` <br>
+- 登录密码为: `123456` <br>
 # 感谢<br>
 - Bootstrap<br>
 - ThinkPHP<br>
