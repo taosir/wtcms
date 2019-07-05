@@ -75,5 +75,5 @@ wtcms 根目录
 - ThinkPHP<br>
 - Thinkcmf<br>
 # 效果演示
-- http://storage.hust.edu.cn/
+- 
 
