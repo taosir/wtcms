@@ -74,6 +74,6 @@ wtcms 根目录
 - Bootstrap<br>
 - ThinkPHP<br>
 - Thinkcmf<br>
-# 效果演示
-- 
+ # 六、其他
+ * 功能非常齐全而且强大的微信商城小程序源码，感兴趣可以看看：https://github.com/taosir/wxapp_store
 
