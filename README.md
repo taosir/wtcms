@@ -1,19 +1,19 @@
 # wtcms
 **wtcms** 是基于ThinkPHP框架的一套CMS系统，方便用户快速建立企业网站，门户网站，个人博客或其他系统的内容管理系统。<br>
-# 主页
+# 一、主页
 ![home_view](https://github.com/taosir/wtcms/blob/master/public/images/home.png)<br>
-# 功能特色
+# 二、功能特色
 - 基于ueditor的内容编辑器；<br>
 - 基于bootstrap的前端框架开发；<br>
 - 文章搜索功能；<br>
 - 内容自定义灵活；<br>
 - 基于thinkphp和thinkcmf，内容精简，二次开发方便。<br>
-# 运行环境<br>
+# 三、运行环境<br>
 - 操作系统：Windows/Mac/Linux <br>
 - php：>= 5.4<br>
 - mysql：>= 5.5<br>
 - rewrite on <br>
-# 安装部署<br>
+# 四、安装部署<br>
 1、配置好`LAMP/WAMP`环境<br>
   2、新建一个数据库`storage`<br>
   3、将`wtcms.sql`文件内容导入`storage`数据库中<br>
@@ -32,7 +32,7 @@ return array(
     'COOKIE_PREFIX' => 'wt_', //cookies前缀
 );
 ```
-# 目录结构  
+# 五、目录结构
 ```php
 wtcms 根目录
 |-- admin   后台文件夹
@@ -66,14 +66,10 @@ wtcms 根目录
 |-- index.php   入口文件
 |-- wtcms.sql   数据文件
 ``` 
-# 后台管理 <br>
+# 六、后台管理 <br>
 - 登录地址：'/admin' <br>
 - 登录账号: `admin` <br>
 - 登录密码为: `123456` <br>
-# 感谢<br>
-- Bootstrap<br>
-- ThinkPHP<br>
-- Thinkcmf<br>
- # 六、其他
+ # 七、其他
  * 功能非常齐全而且强大的微信商城小程序源码，感兴趣可以看看：https://github.com/taosir/wxapp_store
 
